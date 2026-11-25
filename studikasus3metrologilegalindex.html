@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi Interaktif Metrologi Legal - Kasus 3</title>
+  <!-- Tailwind CSS CDN resmi untuk Google Sites -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Styling scrollbar halus */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans p-2 sm:p-4 md:p-6 antialiased">
+
+  <!-- Container Utama -->
+  <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+    
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-700 text-white p-5 sm:p-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/30 border border-blue-300/30 text-xs font-semibold text-blue-100 uppercase tracking-wider mb-2">
+            <span>⚖️ METROLOGI LEGAL</span>
+            <span>•</span>
+            <span>STUDI KASUS 3</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
+            Penanganan Timbangan Gagal Justir pada Tera Ulang
+          </h1>
+          <p class="text-blue-100 text-xs sm:text-sm mt-1 max-w-2xl">
+            Modul Pembelajaran Interaktif: Prosedur Pengujian, Batas Kewenangan Pegawai Berhak, dan Keputusan Yuridis UTTP (UU No. 2 Tahun 1981).
+          </p>
+        </div>
+        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 rounded-xl border border-white/20 text-xs text-blue-50">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+          <span>Status: <strong>Evaluasi Kasus</strong></span>
+        </div>
+      </div>
+
+      <!-- Navigasi Tab -->
+      <nav class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-white/15 text-sm font-medium">
+        <button onclick="switchTab('scenario')" id="tab-btn-scenario" class="tab-btn px-4 py-2 rounded-lg bg-white text-blue-800 font-semibold shadow-sm transition">
+          📖 1. Studi Kasus & Alur
+        </button>
+        <button onclick="switchTab('simulation')" id="tab-btn-simulation" class="tab-btn px-4 py-2 rounded-lg text-white hover:bg-white/15 transition">
+          ⚖️ 2. Simulasi Timbangan Digital
+        </button>
+        <button onclick="switchTab('decision')" id="tab-btn-decision" class="tab-btn px-4 py-2 rounded-lg text-white hover:bg-white/15 transition">
+          🧭 3. Pohon Keputusan (Branching)
+        </button>
+        <button onclick="switchTab('quiz')" id="tab-btn-quiz" class="tab-btn px-4 py-2 rounded-lg text-white hover:bg-white/15 transition">
+          📝 4. Kuis Evaluasi
+        </button>
+      </nav>
+    </header>
+
+    <!-- Konten Tab -->
+    <main class="p-4 sm:p-6 md:p-8">
+
+      <!-- TAB 1: KASUS & ALUR KRONOLOGI -->
+      <section id="tab-scenario" class="tab-content space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          <!-- Deskripsi Kasus -->
+          <div class="lg:col-span-7 bg-blue-50/60 border border-blue-200 rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="p-2.5 bg-blue-600 text-white rounded-xl shadow-md text-xl">📋</span>
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-slate-900">Uraian Peristiwa di Tempat Sidang Tera</h3>
+                  <p class="text-xs text-slate-500">Kegiatan Pelayanan Tera Ulang Timbangan Meja Elektronik</p>
+                </div>
+              </div>
+              
+              <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+                <p class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-sm">
+                  <strong>1. Pengujian Awal:</strong> Pada saat sidang tera ulang, sebuah timbangan digital meja diuji kebenarannya menggunakan <strong>Anak Timbangan Standar (1,000 kg)</strong>. Hasil penunjukan timbangan ternyata <strong>0,998 kg</strong> (terdapat deviasi kesalahan -2 gram) yang dinyatakan <strong>menyimpang melebihi BKD</strong> (Batas Kesalahan yang Diizinkan).
+                </p>
+                <p class="p-3 bg-white rounded-xl border border-slate-200/80 shadow-sm">
+                  <strong>2. Penjustiran oleh Pegawai Berhak:</strong> Pegawai Berhak (Penera) mencoba menyetel baut span justir dan kalibrasi eksternal timbangan agar penunjukannya dapat kembali normal ke 1,000 kg.
+                </p>
+                <p class="p-3 bg-white rounded-xl border border-red-200 bg-red-50/50 shadow-sm text-red-900 font-medium">
+                  <strong>3. Hasil Pengujian Kembali:</strong> Setelah dijustir dan diuji ulang dengan anak timbangan standar yang sama, penunjukan timbangan <strong>tetap 0,998 kg (masih tetap menyimpang dari BKD)</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-blue-200/60 flex items-center justify-between text-xs text-blue-700 font-semibold">
+              <span>🎯 Pertanyaan Inti: Tindakan apa yang wajib diambil Pegawai Berhak?</span>
+              <button onclick="switchTab('decision')" class="text-blue-600 hover:text-blue-800 underline font-bold cursor-pointer">
+                Pilih Keputusan &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- Infografis Alur Visual -->
+          <div class="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-lg">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                <span class="text-xs font-semibold tracking-wider uppercase text-slate-400">Diagram Alur Pengujian</span>
+                <span class="px-2 py-0.5 rounded bg-red-900/60 text-red-300 text-[11px] font-mono">HASIL: DITOLAK</span>
+              </div>
+
+              <!-- Langkah 1 -->
+              <div class="relative pl-6 pb-5 border-l-2 border-red-500">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-red-500 border-2 border-slate-900 flex items-center justify-center text-[9px] font-bold">1</div>
+                <div class="text-xs font-bold text-slate-200">Pengujian Awal (Tera Ulang)</div>
+                <div class="mt-1 text-xs text-slate-400">Beban AT 1.000 kg &rarr; Hasil: 0.998 kg</div>
+                <span class="inline-flex items-center gap-1 mt-1 text-[11px] px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800/60">
+                  ❌ Menyimpang dari BKD
+                </span>
+              </div>
+
+              <!-- Langkah 2 -->
+              <div class="relative pl-6 pb-5 border-l-2 border-amber-500">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-2 border-slate-900 flex items-center justify-center text-[9px] font-bold">2</div>
+                <div class="text-xs font-bold text-slate-200">Penjustiran oleh Pegawai Berhak</div>
+                <div class="mt-1 text-xs text-slate-400">Penyetelan baut span / kalibrasi luar</div>
+                <span class="inline-flex items-center gap-1 mt-1 text-[11px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800/60">
+                  🔧 Penjustiran Sederhana
+                </span>
+              </div>
+
+              <!-- Langkah 3 -->
+              <div class="relative pl-6">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-red-500 border-2 border-slate-900 flex items-center justify-center text-[9px] font-bold">3</div>
+                <div class="text-xs font-bold text-slate-200">Pengujian Kembali (Re-Test)</div>
+                <div class="mt-1 text-xs text-slate-400">Pengujian ulang pasca-penjustiran</div>
+                <span class="inline-flex items-center gap-1 mt-1 text-[11px] px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800/60">
+                  ❌ Masih Menyimpang
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-6 bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs">
+              <span class="text-amber-400 font-semibold">⚠️ Konsekuensi Hukum:</span> Timbangan UTTP yang tidak lulus syarat teknis dilarang dibubuhi tanda tera sah dan dilarang dipakai berdagang (UU No. 2 Tahun 1981).
+            </div>
+          </div>
+        </div>
+
+        <!-- Ketentuan Yuridis Singkat -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+          <h4 class="font-bold text-amber-900 text-sm flex items-center gap-2 mb-2">
+            <span>💡</span> 3 Prinsip Pokok Metrologi Legal dalam Kasus Ini:
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-amber-950">
+            <div class="bg-white/80 p-3 rounded-xl border border-amber-200/80">
+              <span class="font-bold text-amber-800 block mb-1">1. Toleransi BKD Mutlak</span>
+              Tidak ada istilah "kelonggaran/toleransi tambahan". Jika menyimpang melebihi BKD, timbangan tidak sah secara hukum.
+            </div>
+            <div class="bg-white/80 p-3 rounded-xl border border-amber-200/80">
+              <span class="font-bold text-amber-800 block mb-1">2. Batas Kewenangan Petugas</span>
+              Penera hanya berwenang menguji dan menjustir sederhana. Membongkar atau menyolder komponen internal adalah wewenang <strong>Reparir Berizin</strong>.
+            </div>
+            <div class="bg-white/80 p-3 rounded-xl border border-amber-200/80">
+              <span class="font-bold text-amber-800 block mb-1">3. Status Penolakan & Tanda Batal</span>
+              Timbangan wajib dinyatakan <strong>Ditolak</strong>, dibubuhi <strong>Cap Tanda Batal</strong>, dan diserahkan Surat Penolakan untuk diservis ke Reparir.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: SIMULASI TIMBANGAN DIGITAL -->
+      <section id="tab-simulation" class="tab-content hidden space-y-6">
+        <div class="bg-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-800">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-2">
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                <span>🔬</span> Laboratorium Virtual Pengujian Timbangan
+              </h3>
+              <p class="text-xs text-slate-400">Interaksikan beban standar dan obeng justir untuk mempraktikkan langsung alur kasus.</p>
+            </div>
+            <button onclick="resetSimulation()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition cursor-pointer">
+              🔄 Reset Pengujian
+            </button>
+          </div>
+
+          <!-- Meja Uji Visual -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 my-6 items-center">
+            
+            <!-- Visual Timbangan & Beban -->
+            <div class="lg:col-span-7 flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-2xl border border-slate-700/60 relative">
+              
+              <!-- Piring Timbangan (Platter) -->
+              <div id="scale-platter" class="w-64 h-36 border-b-8 border-slate-600 bg-gradient-to-t from-slate-400 to-slate-200 rounded-t-xl flex flex-col items-center justify-end relative shadow-inner transition-all duration-300">
+                <!-- Anak Timbangan Standar (AT) -->
+                <div id="standard-weight" class="hidden mb-1 flex flex-col items-center animate-bounce">
+                  <div class="w-6 h-3 bg-amber-400 rounded-t-full border border-amber-600"></div>
+                  <div class="w-20 h-16 bg-gradient-to-b from-amber-300 via-amber-400 to-amber-600 rounded-lg shadow-lg border border-amber-700 flex items-center justify-center text-slate-900 font-extrabold text-xs shadow-amber-900/40">
+                    AT 1.000 kg
+                  </div>
+                </div>
+                <div class="text-[11px] font-mono text-slate-600 mb-1">PIRING TIMBANGAN (PAN)</div>
+              </div>
+
+              <!-- Badan Timbangan -->
+              <div class="w-80 bg-slate-700 p-4 rounded-b-2xl border-t border-slate-500 shadow-2xl relative flex flex-col items-center">
+                <!-- Layar Digital 7-Segmen -->
+                <div class="w-full bg-black/90 p-3 rounded-xl border-2 border-slate-600 shadow-inner flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-1.5">
+                    <span id="scale-indicator-led" class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <span class="text-[10px] text-slate-400 font-mono">STABIL</span>
+                  </div>
+                  <div class="text-right">
+                    <span id="digital-display" class="font-mono text-3xl font-bold tracking-widest text-emerald-400 transition-colors duration-300">
+                      0.000
+                    </span>
+                    <span class="text-xs font-mono text-emerald-500 ml-1">kg</span>
+                  </div>
+                </div>
+
+                <!-- Baut Justir Eksternal -->
+                <div class="w-full flex items-center justify-between text-[11px] text-slate-300 px-1">
+                  <div class="flex items-center gap-1">
+                    <span class="text-slate-400 font-mono">BKD: &plusmn; 0.001 kg</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span>Baut Justir:</span>
+                    <div id="justir-screw" class="w-5 h-5 rounded-full bg-amber-500 border border-amber-300 flex items-center justify-center font-bold text-slate-900 transition-transform duration-500" title="Baut Penjustiran">
+                      -
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel Tombol Aksi -->
+            <div class="lg:col-span-5 space-y-4">
+              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tahapan Pengujian Praktik</h4>
+              
+              <!-- Tombol 1 -->
+              <button id="btn-place-weight" onclick="actionPlaceWeight()" class="w-full p-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm flex items-center justify-between transition shadow-md cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <span>⚖️</span> 1. Naikkan Beban Uji Standar (1.000 kg)
+                </span>
+                <span class="text-[11px] bg-blue-700 px-2 py-0.5 rounded">Mulai Uji</span>
+              </button>
+
+              <!-- Tombol 2 -->
+              <button id="btn-adjust" onclick="actionAdjust()" disabled class="w-full p-3 rounded-xl bg-slate-800 text-slate-500 font-semibold text-xs sm:text-sm flex items-center justify-between transition border border-slate-700 cursor-not-allowed">
+                <span class="flex items-center gap-2">
+                  <span>🪛</span> 2. Lakukan Penjustiran oleh Pegawai Berhak
+                </span>
+                <span class="text-[11px] bg-slate-700 px-2 py-0.5 rounded">Justir</span>
+              </button>
+
+              <!-- Tombol 3 -->
+              <button id="btn-retest" onclick="actionRetest()" disabled class="w-full p-3 rounded-xl bg-slate-800 text-slate-500 font-semibold text-xs sm:text-sm flex items-center justify-between transition border border-slate-700 cursor-not-allowed">
+                <span class="flex items-center gap-2">
+                  <span>🔍</span> 3. Lakukan Pengujian Kembali (Re-Test)
+                </span>
+                <span class="text-[11px] bg-slate-700 px-2 py-0.5 rounded">Uji Ulang</span>
+              </button>
+
+              <!-- Kotak Catatan Penguji -->
+              <div id="sim-log-box" class="p-3.5 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono space-y-1.5 text-slate-300">
+                <div class="text-slate-400 font-bold border-b border-slate-800 pb-1">CATATAN PENERA (LOG):</div>
+                <div id="sim-log-text">Silakan klik tombol <strong>"1. Naikkan Beban Uji Standar"</strong> untuk memulai simulasi pengujian.</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Kesimpulan Simulasi -->
+          <div id="sim-conclusion" class="hidden p-4 rounded-xl bg-red-950/70 border border-red-700 text-red-200 text-xs space-y-2">
+            <div class="font-bold text-sm text-red-300 flex items-center gap-2">
+              <span>⚠️</span> KESIMPULAN: PENJUSTIRAN TIDAK MEMULIHKAN KETELITIAN (-2g &gt; BKD)
+            </div>
+            <p>
+              Timbangan tetap membaca 0,998 kg pada beban 1,000 kg. Kerusakan diduga terjadi pada komponen perangkat keras internal (sensor beban / <em>load cell</em> atau modul ADC). Timbangan tidak dapat disahkan!
+            </p>
+            <div class="pt-2">
+              <button onclick="switchTab('decision')" class="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg font-bold text-xs transition cursor-pointer">
+                Lanjut ke Simulasi Keputusan &rarr;
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TAB 3: POHON KEPUTUSAN -->
+      <section id="tab-decision" class="tab-content hidden space-y-6">
+        <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-5 sm:p-6">
+          <div class="max-w-2xl mb-6">
+            <span class="px-3 py-1 rounded-full bg-indigo-200 text-indigo-800 text-xs font-bold uppercase tracking-wider">
+              Skenario Percabangan Keputusan
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">
+              Sebagai Pegawai Berhak, Apa Tindakan Anda Sekarang?
+            </h3>
+            <p class="text-xs text-slate-600 mt-1">
+              Pilihlah salah satu opsi tindakan berikut untuk melihat konsekuensi yuridis dan prosedural berdasarkan hukum Metrologi Legal:
+            </p>
+          </div>
+
+          <!-- Pilihan Opsi -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Opsi A -->
+            <button onclick="selectDecision('A')" id="btn-dec-A" class="decision-card text-left p-4 sm:p-5 rounded-xl bg-white border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition cursor-pointer">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-7 h-7 rounded-full bg-slate-100 border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-700">A</span>
+                <span class="text-[11px] text-slate-400">Opsi Toleransi</span>
+              </div>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Membubuhkan Tanda Tera Sah Bersyarat</h5>
+              <p class="text-xs text-slate-600">
+                Mengesahkan timbangan dengan cap tanda tera sah karena selisih 2 gram dianggap kecil, dengan syarat pedagang segera memperbaikinya sendiri nanti.
+              </p>
+            </button>
+
+            <!-- Opsi B -->
+            <button onclick="selectDecision('B')" id="btn-dec-B" class="decision-card text-left p-4 sm:p-5 rounded-xl bg-white border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition cursor-pointer">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-7 h-7 rounded-full bg-slate-100 border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-700">B</span>
+                <span class="text-[11px] text-slate-400">Opsi Reparasi Sendiri</span>
+              </div>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Membongkar Komponen Mesin di Tempat</h5>
+              <p class="text-xs text-slate-600">
+                Penera berinisiatif mengambil peralatan solder dan obeng untuk membongkar motherboard atau sensor load cell timbangan agar lekas berfungsi normal.
+              </p>
+            </button>
+
+            <!-- Opsi C -->
+            <button onclick="selectDecision('C')" id="btn-dec-C" class="decision-card text-left p-4 sm:p-5 rounded-xl bg-white border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition cursor-pointer">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-7 h-7 rounded-full bg-indigo-100 border border-indigo-300 font-bold text-xs flex items-center justify-center text-indigo-700">C</span>
+                <span class="text-[11px] text-indigo-600 font-semibold">Opsi Standar Yuridis</span>
+              </div>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Menolak Tera, Bubuhkan Cap Batal, Rujuk ke Reparir</h5>
+              <p class="text-xs text-slate-600">
+                Menyatakan timbangan ditolak, merusak tanda tera lama dengan cap tanda batal, menerbitkan Surat Penolakan, dan merekomendasikan perbaikan ke Reparir Berizin.
+              </p>
+            </button>
+
+            <!-- Opsi D -->
+            <button onclick="selectDecision('D')" id="btn-dec-D" class="decision-card text-left p-4 sm:p-5 rounded-xl bg-white border-2 border-slate-200 hover:border-indigo-400 hover:shadow-md transition cursor-pointer">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-7 h-7 rounded-full bg-slate-100 border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-700">D</span>
+                <span class="text-[11px] text-slate-400">Opsi Kompromi</span>
+              </div>
+              <h5 class="text-sm font-bold text-slate-900 mb-1">Mengizinkan Pakai Asal Pedagang Memberi Diskon</h5>
+              <p class="text-xs text-slate-600">
+                Membuat kesepakatan bahwa timbangan boleh dipakai berjualan asal pedagang memotong harga barang kepada pembeli untuk mengimbangi selisih timbangan.
+              </p>
+            </button>
+
+          </div>
+
+          <!-- Umpan Balik Keputusan -->
+          <div id="decision-feedback" class="hidden mt-6 p-5 rounded-2xl transition-all duration-300"></div>
+        </div>
+      </section>
+
+      <!-- TAB 4: KUIS EVALUASI -->
+      <section id="tab-quiz" class="tab-content hidden space-y-6">
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 gap-2">
+            <div>
+              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">EVALUASI PEMAHAMAN</span>
+              <h3 class="text-lg font-bold text-slate-900">Kuis Pemahaman Kasus Metrologi Legal</h3>
+            </div>
+            <div class="px-3 py-1 bg-slate-100 rounded-full text-xs font-bold text-slate-700">
+              Skor Anda: <span id="current-score" class="text-blue-600 font-extrabold text-sm">0</span> / 4
+            </div>
+          </div>
+
+          <div id="quiz-container" class="mt-6 space-y-6">
+            
+            <!-- Soal 1 -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-bold mb-2">Soal 1 (Prosedur Hukum)</span>
+              <p class="text-sm font-semibold text-slate-800 mb-3">
+                1. Jika hasil uji tera ulang melebihi BKD dan setelah dijustir hasilnya masih tetap menyimpang, tindakan apa yang wajib dilakukan terhadap cap tanda tera sah yang lama?
+              </p>
+              <div class="space-y-2 text-xs">
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q1" value="a" onchange="checkQ(1, 'a', false)">
+                  <span>A. Dibiarkan utuh menunggu pedagang selesai memperbaiki sendiri timbangannya</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q1" value="b" onchange="checkQ(1, 'b', true)">
+                  <span>B. Dibatalkan/ditiadakan dengan membubuhkan Cap Tanda Batal</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q1" value="c" onchange="checkQ(1, 'c', false)">
+                  <span>C. Ditimpa langsung dengan Cap Tanda Tera Sah tahun berjalan</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q1" value="d" onchange="checkQ(1, 'd', false)">
+                  <span>D. Ditutup isolasi hitam tanpa merusak cap tanda tera lama</span>
+                </label>
+              </div>
+              <div id="q1-fb" class="hidden mt-3 p-3 rounded-lg text-xs"></div>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-bold mb-2">Soal 2 (Batasan Wewenang)</span>
+              <p class="text-sm font-semibold text-slate-800 mb-3">
+                2. Mengapa Pegawai Berhak (Penera) TIDAK DIPERBOLEHKAN membongkar sensor elektronik/mesin timbangan untuk mereparasinya sendiri di tempat sidang tera?
+              </p>
+              <div class="space-y-2 text-xs">
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q2" value="a" onchange="checkQ(2, 'a', false)">
+                  <span>A. Karena Pegawai Berhak tidak memiliki peralatan perkakas tangan</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q2" value="b" onchange="checkQ(2, 'b', true)">
+                  <span>B. Wewenang Penera sebatas menguji & menjustir sederhana; reparasi mesin wewenang pihak Reparir Berizin demi menjaga independensi pengujian</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q2" value="c" onchange="checkQ(2, 'c', false)">
+                  <span>C. Karena pemilik timbangan diwajibkan membeli timbangan baru dari dinas</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q2" value="d" onchange="checkQ(2, 'd', false)">
+                  <span>D. Tarif biaya reparasi internal belum masuk dalam daftar Perda retribusi</span>
+                </label>
+              </div>
+              <div id="q2-fb" class="hidden mt-3 p-3 rounded-lg text-xs"></div>
+            </div>
+
+            <!-- Soal 3 -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-bold mb-2">Soal 3 (Alur Pemilik UTTP)</span>
+              <p class="text-sm font-semibold text-slate-800 mb-3">
+                3. Setelah timbangan dinyatakan DITOLAK dan diberikan Surat Keterangan Penolakan, langkah resmi berikutnya yang harus ditempuh oleh pemilik timbangan adalah:
+              </p>
+              <div class="space-y-2 text-xs">
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q3" value="a" onchange="checkQ(3, 'a', false)">
+                  <span>A. Membawa timbangan pulang dan menggunakannya kembali tanpa segel tera</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q3" value="b" onchange="checkQ(3, 'b', true)">
+                  <span>B. Membawa timbangan ke Reparir UTTP berizin untuk diservis, kemudian mengajukan kembali untuk Tera Ulang</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q3" value="c" onchange="checkQ(3, 'c', false)">
+                  <span>C. Melaporkan petugas penera ke kepolisian karena menolak timbangannya</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q3" value="d" onchange="checkQ(3, 'd', false)">
+                  <span>D. Meminjam cap tanda tera sah milik pedagang lain</span>
+                </label>
+              </div>
+              <div id="q3-fb" class="hidden mt-3 p-3 rounded-lg text-xs"></div>
+            </div>
+
+            <!-- Soal 4 -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="inline-block px-2.5 py-0.5 rounded bg-blue-100 text-blue-800 text-xs font-bold mb-2">Soal 4 (Sanksi Pidana UU ML)</span>
+              <p class="text-sm font-semibold text-slate-800 mb-3">
+                4. Apabila pedagang tetap sengaja menggunakan timbangan yang tanda teranya telah dibatalkan tersebut untuk bertransaksi jual beli, ancaman hukumannya menurut Pasal 32 UU No. 2 Tahun 1981 adalah:
+              </p>
+              <div class="space-y-2 text-xs">
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q4" value="a" onchange="checkQ(4, 'a', true)">
+                  <span>A. Pidana penjara selama-lamanya 1 tahun dan/atau denda</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q4" value="b" onchange="checkQ(4, 'b', false)">
+                  <span>B. Hanya teguran lisan tanpa adanya konsekuensi pidana</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q4" value="c" onchange="checkQ(4, 'c', false)">
+                  <span>C. Penutupan pasar secara serentak selama satu minggu</span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-slate-200 hover:bg-slate-100 cursor-pointer">
+                  <input type="radio" name="q4" value="d" onchange="checkQ(4, 'd', false)">
+                  <span>D. Penyitaan seluruh barang dagangan tanpa proses pengadilan</span>
+                </label>
+              </div>
+              <div id="q4-fb" class="hidden mt-3 p-3 rounded-lg text-xs"></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200 px-6 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+      <div>Media Edukasi Metrologi Legal • Perlindungan Konsumen & Kepastian Takaran</div>
+      <div>Berdasarkan UU RI No. 2 Tahun 1981</div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript Interaktif -->
+  <script>
+    // Fungsi Pindah Tab
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-blue-800', 'font-semibold', 'shadow-sm');
+        btn.classList.add('text-white', 'hover:bg-white/15');
+      });
+
+      const activeContent = document.getElementById('tab-' + tabId);
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.remove('text-white', 'hover:bg-white/15');
+        activeBtn.classList.add('bg-white', 'text-blue-800', 'font-semibold', 'shadow-sm');
+      }
+    }
+
+    // Simulasi Timbangan Digital
+    function actionPlaceWeight() {
+      const weightElem = document.getElementById('standard-weight');
+      const displayElem = document.getElementById('digital-display');
+      const logText = document.getElementById('sim-log-text');
+      const btnPlace = document.getElementById('btn-place-weight');
+      const btnAdjust = document.getElementById('btn-adjust');
+
+      weightElem.classList.remove('hidden');
+      displayElem.innerText = "0.998";
+      displayElem.classList.remove('text-emerald-400');
+      displayElem.classList.add('text-red-400');
+
+      logText.innerHTML = "<span class='text-red-400 font-bold'>[UJI AWAL]</span> Beban AT Standar 1.000 kg diletakkan.<br>Penunjukan: <strong>0.998 kg</strong> (Galat: -2 gram).<br><span class='text-amber-400 font-semibold'>Status: Menyimpang dari BKD (&plusmn;0.001 kg). Lakukan penjustiran!</span>";
+
+      btnPlace.disabled = true;
+      btnPlace.classList.add('opacity-50', 'cursor-not-allowed');
+
+      btnAdjust.disabled = false;
+      btnAdjust.classList.remove('bg-slate-800', 'text-slate-500', 'cursor-not-allowed');
+      btnAdjust.classList.add('bg-amber-600', 'hover:bg-amber-500', 'text-white', 'shadow-md', 'cursor-pointer');
+    }
+
+    function actionAdjust() {
+      const logText = document.getElementById('sim-log-text');
+      const btnAdjust = document.getElementById('btn-adjust');
+      const btnRetest = document.getElementById('btn-retest');
+      const screw = document.getElementById('justir-screw');
+
+      screw.style.transform = "rotate(180deg)";
+      
+      logText.innerHTML = "<span class='text-amber-400 font-bold'>[PENJUSTIRAN]</span> Pegawai Berhak menyetel baut span & kalibrasi eksternal timbangan... Penyetelan selesai. Silakan lakukan pengujian kembali.";
+
+      btnAdjust.disabled = true;
+      btnAdjust.classList.add('opacity-50', 'cursor-not-allowed');
+
+      btnRetest.disabled = false;
+      btnRetest.classList.remove('bg-slate-800', 'text-slate-500', 'cursor-not-allowed');
+      btnRetest.classList.add('bg-indigo-600', 'hover:bg-indigo-500', 'text-white', 'shadow-md', 'cursor-pointer');
+    }
+
+    function actionRetest() {
+      const displayElem = document.getElementById('digital-display');
+      const logText = document.getElementById('sim-log-text');
+      const btnRetest = document.getElementById('btn-retest');
+      const conclusion = document.getElementById('sim-conclusion');
+
+      displayElem.innerText = "0.998";
+      displayElem.classList.add('text-red-500', 'animate-pulse');
+
+      logText.innerHTML = "<span class='text-red-400 font-bold'>[PENGUJIAN KEMBALI]</span> Beban diangkat lalu diletakkan kembali.<br>Penunjukan: <strong>0.998 kg</strong> (MASIH MENYIMPANG DARI BKD).<br><span class='text-red-300 font-semibold'>Penjustiran tidak berhasil memulihkan kesalahan penunjukan timbangan.</span>";
+
+      btnRetest.disabled = true;
+      btnRetest.classList.add('opacity-50', 'cursor-not-allowed');
+      conclusion.classList.remove('hidden');
+    }
+
+    function resetSimulation() {
+      document.getElementById('standard-weight').classList.add('hidden');
+      const displayElem = document.getElementById('digital-display');
+      displayElem.innerText = "0.000";
+      displayElem.classList.remove('text-red-400', 'text-red-500', 'animate-pulse');
+      displayElem.classList.add('text-emerald-400');
+
+      document.getElementById('sim-conclusion').classList.add('hidden');
+      document.getElementById('justir-screw').style.transform = "rotate(0deg)";
+
+      document.getElementById('sim-log-text').innerText = 'Silakan klik tombol "1. Naikkan Beban Uji Standar" untuk memulai simulasi pengujian.';
+
+      const btnPlace = document.getElementById('btn-place-weight');
+      btnPlace.disabled = false;
+      btnPlace.classList.remove('opacity-50', 'cursor-not-allowed');
+
+      const btnAdjust = document.getElementById('btn-adjust');
+      btnAdjust.disabled = true;
+      btnAdjust.className = "w-full p-3 rounded-xl bg-slate-800 text-slate-500 font-semibold text-xs sm:text-sm flex items-center justify-between transition border border-slate-700 cursor-not-allowed";
+
+      const btnRetest = document.getElementById('btn-retest');
+      btnRetest.disabled = true;
+      btnRetest.className = "w-full p-3 rounded-xl bg-slate-800 text-slate-500 font-semibold text-xs sm:text-sm flex items-center justify-between transition border border-slate-700 cursor-not-allowed";
+    }
+
+    // Logika Percabangan Keputusan
+    function selectDecision(choice) {
+      const fb = document.getElementById('decision-feedback');
+      fb.classList.remove('hidden');
+
+      ['A', 'B', 'C', 'D'].forEach(c => {
+        const btn = document.getElementById('btn-dec-' + c);
+        btn.classList.remove('border-emerald-500', 'border-red-500', 'bg-emerald-50', 'bg-red-50', 'border-amber-500', 'bg-amber-50');
+      });
+
+      const selectedBtn = document.getElementById('btn-dec-' + choice);
+
+      if (choice === 'C') {
+        selectedBtn.classList.add('border-emerald-500', 'bg-emerald-50');
+        fb.className = "mt-6 p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-500 text-emerald-950 space-y-3";
+        fb.innerHTML = `
+          <div class="flex items-center gap-2 font-bold text-base text-emerald-800">
+            <span>✅</span> KEPUTUSAN BENAR & TEPAT SECARA HUKUM!
+          </div>
+          <p class="text-xs sm:text-sm leading-relaxed">
+            <strong>Penjelasan Yuridis:</strong> Sesuai Permendag Tera/Tera Ulang UTTP dan UU No. 2 Tahun 1981, apabila UTTP telah dijustir namun penunjukannya tetap menyimpang melebihi BKD, timbangan <strong>TIDAK DAPAT DISAHKAN</strong>.
+          </p>
+          <div class="bg-white/90 p-3 rounded-xl border border-emerald-200 text-xs space-y-1.5">
+            <div class="font-bold text-emerald-900">Prosedur Wajib yang Harus Dijalankan Penera:</div>
+            <div>1. Membubuhkan <strong>Cap Tanda Batal</strong> (atau membatalkan/merusak cap tera lama agar tidak disalahgunakan).</div>
+            <div>2. Menerbitkan <strong>Surat Keterangan Penolakan / Catatan Pengujian</strong> kepada pemilik timbangan.</div>
+            <div>3. Memerintahkan pemilik untuk menyerahkan perbaikan mesin ke pihak <strong>Reparir UTTP Berizin</strong>.</div>
+            <div>4. Setelah selesai diperbaiki, pemilik wajib mengajukan <strong>Tera Ulang kembali</strong> sebelum timbangan boleh digunakan berniaga.</div>
+          </div>
+        `;
+      } else if (choice === 'A') {
+        selectedBtn.classList.add('border-red-500', 'bg-red-50');
+        fb.className = "mt-6 p-5 rounded-2xl bg-red-50 border-2 border-red-500 text-red-950 space-y-3";
+        fb.innerHTML = `
+          <div class="flex items-center gap-2 font-bold text-base text-red-800">
+            <span>❌</span> KEPUTUSAN SALAH (PELANGGARAN HUKUM BERAT)
+          </div>
+          <p class="text-xs sm:text-sm leading-relaxed">
+            Tidak ada istilah "Tera Sah Bersyarat" untuk UTTP yang penunjukannya di luar BKD! Membubuhkan tanda tera sah pada timbangan yang menyimpang adalah <strong>pelanggaran kode etik berat bagi Penera</strong> dan dapat diancam sanksi pidana karena melegalkan alat ukur yang merugikan masyarakat.
+          </p>
+        `;
+      } else if (choice === 'B') {
+        selectedBtn.classList.add('border-amber-500', 'bg-amber-50');
+        fb.className = "mt-6 p-5 rounded-2xl bg-amber-50 border-2 border-amber-500 text-amber-950 space-y-3";
+        fb.innerHTML = `
+          <div class="flex items-center gap-2 font-bold text-base text-amber-800">
+            <span>⚠️</span> KEPUTUSAN KELIRU (MELAMPAUI KEWENANGAN)
+          </div>
+          <p class="text-xs sm:text-sm leading-relaxed">
+            Pegawai Berhak bertindak sebagai <strong>Penguji Independen</strong>, BUKAN teknisi bengkel servis. Membongkar sirkuit/load cell timbangan merupakan ranah <strong>Reparir UTTP Berizin</strong>. Jika Penera merangkap reparasi komponen mesin, timbul benturan kepentingan (<em>conflict of interest</em>).
+          </p>
+        `;
+      } else if (choice === 'D') {
+        selectedBtn.classList.add('border-red-500', 'bg-red-50');
+        fb.className = "mt-6 p-5 rounded-2xl bg-red-50 border-2 border-red-500 text-red-950 space-y-3";
+        fb.innerHTML = `
+          <div class="flex items-center gap-2 font-bold text-base text-red-800">
+            <span>❌</span> KEPUTUSAN SALAH BESAR
+          </div>
+          <p class="text-xs sm:text-sm leading-relaxed">
+            Metrologi Legal berlandaskan asas kepastian takaran dan perlindungan konsumen. Petugas dilarang membuat kesepakatan kompromi diskon dagang sepihak untuk alat ukur yang tidak akurat.
+          </p>
+        `;
+      }
+    }
+
+    // Logika Kuis & Scoring
+    let userAnswers = {};
+
+    function checkQ(qNum, choice, isCorrect) {
+      userAnswers[qNum] = isCorrect;
+      const fb = document.getElementById('q' + qNum + '-fb');
+      fb.classList.remove('hidden');
+
+      if (isCorrect) {
+        fb.className = "mt-3 p-3 rounded-lg text-xs bg-emerald-100 text-emerald-900 border border-emerald-300";
+        fb.innerHTML = "<strong>Benar!</strong> Jawaban Anda tepat sesuai ketentuan hukum Metrologi Legal.";
+      } else {
+        fb.className = "mt-3 p-3 rounded-lg text-xs bg-red-100 text-red-900 border border-red-300";
+        fb.innerHTML = "<strong>Kurang Tepat.</strong> Pelajari kembali kewenangan Penera, batasan BKD, dan aturan tanda batal menurut UU No. 2 Tahun 1981.";
+      }
+
+      let score = 0;
+      for (let k in userAnswers) {
+        if (userAnswers[k] === true) score++;
+      }
+      document.getElementById('current-score').innerText = score;
+    }
+  </script>
+
+</body>
+</html>
